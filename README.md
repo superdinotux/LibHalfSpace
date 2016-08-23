@@ -1,5 +1,5 @@
 # LibHalfSpace
-code forthe paper "LibHalfSpace: a C++ object-oriented library to study deformation and stress in elastic half-spaces"
+code for the paper "LibHalfSpace: a C++ object-oriented library to study deformation and stress in elastic half-spaces"
 
 
 LibHalfSpace is a coherent programming interface containing a set of tools designed to make easier and faster the study of processes in an elastic half-space. 
