@@ -1,0 +1,64 @@
+INSTALLATION OF THE LIBRARY
+
+Two binaries of the library are also included in the zip package:
+- libHalfspace.dll, build on Windows 10
+- libHalfspace.so, build on Mageia linux 5
+You can try to use these binaries in order to test the library. If you experience problems with these precompiled version, you can build your own version using the provided sources. 
+
+COMPILATION OF THE LIBRARY
+
+The compilation of the library from sources can be performed using the GNU CMAKE utility (https://cmake.org/download/). Indeed two makefiles (1 for Windows, Makefile-windows and 1 for Linux, Makefile-linux) are included in the zip package.
+The command to launch from prompt command line is:
+
+make -f filename
+
+where filename is Makefile-windows or Makefile-linux according to the operative system.
+
+
+WINDOWS
+
+To install the library:
+- if you use the precompiled version (libHalfspace.dll) included in this package, you have simply to put this file in a directory included in the PATH system variable
+- if you want to compile the library from sources, you can use MinGW ("Minimalist GNU for Windows", http://www.mingw.org/) which it is a minimalist development environment for native Microsoft Windows applications.
+
+To run the application builded using libHalfspace is necessary to have the following libraries:
+- liblapack.dll
+- libblas.dll
+- libgsl.dll
+- libgslcblas.dll
+
+To obtain liblapack.dll and libblas.dll open the following address
+
+https://icl.cs.utk.edu/lapack-for-windows/lapack/
+
+here you find the links to download these files at the section "Prebuilt libraries for Microsoft Visual Studio Projects".
+
+To obtain libgsl.dll and libgslcblas.dll, visit the following address
+
+http://sourceforge.net/projects/gnuwin32/files/gsl/1.8/
+
+download the gsl-1.8-bin.zip package and extract the file from the bin directory.
+In order to run the programs linked to libHalfspace, all of these libraries must be placed in a directory specified in the PATH system variable.
+
+
+LINUX
+Under linux, the installation is quite simple since every distributions provide the packages for LAPACK and GSL libraries.
+
+
+COMPILING AND RUNNING APPLICATION LINKED TO libHalfspace
+
+To compile an application which points to libHalfspace, the following options must be passed to the compiler.
+
+This flag is used to specify the include file directory:
+-I/usr/include/Halfspace (if this is the path where framework header files are installed)
+
+This option is used to specify the libraries to the linker
+-lHalfspace   -lgsl	-llapack
+
+If this libraries are not found by the linker, then their position in the filesystem must be specified using the -L option.
+
+
+
+
+
+
