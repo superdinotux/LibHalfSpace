@@ -36,15 +36,15 @@ LINUX
 Under linux, the installation is quite simple since every distributions provide the packages for LAPACK and GSL libraries.
 
 
-COMPILING AND RUNNING APPLICATION LINKED TO libHalfspace
+COMPILING AND RUNNING APPLICATION LINKED TO LibHalfSpace
 
-To compile an application which points to libHalfspace, the following options must be passed to the compiler.
+To compile an application which points to LibHalfSpace, the following options must be passed to the compiler.
 
 This flag is used to specify the include file directory:
--I/usr/include/Halfspace (if this is the path where framework header files are installed)
+-I/usr/include/LibHalfSpace (if this is the path where framework header files are installed)
 
 This option is used to specify the libraries to the linker
--lHalfspace   -lgsl	-llapack
+-lhalfspace  -lgsl   -llapack
 
 If this libraries are not found by the linker, then their position in the filesystem must be specified using the -L option.
 
