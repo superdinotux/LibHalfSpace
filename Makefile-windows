@@ -1,0 +1,87 @@
+# I am a comment, and I want to say that the variable CC will be the compiler to use.
+
+CC=g++
+FC=gfortran
+
+# Hey!, I am comment number 2. I want to say that CFLAGS will be the options I'll pass to the compiler.
+
+CFLAGS=-c -Wall -std=c++11 -fPIC  -I../include
+
+CSRC=./SRC/
+
+CSRC_FORTRAN=./SRC_fortran/
+
+COPTION1="-IC:\gsl-1.8-lib\include"
+COPTION2="-LC:\gsl-1.8-lib\lib"
+COPTION3="-LC:\MinGW\lib"
+
+COUTNAME=libHalfspace.dll
+
+
+all: Halfspace
+
+Halfspace: SOURCE.o SOURCE_3D.o PRESSURIZED.o MOGI.o YANG.o FIALKO.o MOMENT.o DAVIS.o OKADA.o SOURCE_BE3D.o BE3D.o FAULT.o SILL.o PARAL.o MEDIUM.o CONSOLE.o DATAFILE.o Utilities.o dc3d.o
+	$(CC) $(COPTION2) $(COPTION3) -o $(COUTNAME) SOURCE.o SOURCE_3D.o PRESSURIZED.o MOGI.o YANG.o FIALKO.o MOMENT.o DAVIS.o OKADA.o SOURCE_BE3D.o BE3D.o FAULT.o SILL.o PARAL.o MEDIUM.o CONSOLE.o DATAFILE.o Utilities.o dc3d.o --shared -lgfortran -llapack -lgsl 
+
+SOURCE.o: $(CSRC)SOURCE.cpp
+	$(CC) $(CFLAGS) $(CSRC)SOURCE.cpp
+
+SOURCE_3D.o: $(CSRC)SOURCE_3D.cpp
+	$(CC) $(CFLAGS) $(CSRC)SOURCE_3D.cpp
+
+PRESSURIZED.o: $(CSRC)PRESSURIZED.cpp
+	$(CC) $(CFLAGS) $(CSRC)PRESSURIZED.cpp
+
+MOGI.o: $(CSRC)MOGI.cpp
+	$(CC) $(CFLAGS) $(CSRC)MOGI.cpp    
+
+YANG.o: $(CSRC)YANG.cpp
+	$(CC) $(CFLAGS) $(CSRC)YANG.cpp    
+
+FIALKO.o: $(CSRC)FIALKO.cpp
+	$(CC) $(CFLAGS) $(CSRC)FIALKO.cpp       
+
+MOMENT.o: $(CSRC)MOMENT.cpp
+	$(CC) $(CFLAGS) $(CSRC)MOMENT.cpp     
+
+DAVIS.o: $(CSRC)DAVIS.cpp
+	$(CC) $(CFLAGS) $(CSRC)DAVIS.cpp       
+
+OKADA.o: $(CSRC)OKADA.cpp
+	$(CC) $(CFLAGS) $(CSRC)OKADA.cpp      
+
+SOURCE_BE3D.o: $(CSRC)SOURCE_BE3D.cpp
+	$(CC) $(CFLAGS) $(CSRC)SOURCE_BE3D.cpp    
+
+BE3D.o: $(CSRC)SOURCE_BE3D.cpp
+	$(CC) $(CFLAGS) $(CSRC)BE3D.cpp  
+
+FAULT.o: $(CSRC)FAULT.cpp
+	$(CC) $(CFLAGS) $(CSRC)FAULT.cpp      
+
+SILL.o: $(CSRC)SILL.cpp
+	$(CC) $(CFLAGS) $(CSRC)SILL.cpp      
+
+PARAL.o: $(CSRC)PARAL.cpp
+	$(CC) $(CFLAGS) $(CSRC)PARAL.cpp  
+
+MEDIUM.o: $(CSRC)MEDIUM.cpp
+	$(CC) $(CFLAGS) $(CSRC)MEDIUM.cpp  
+
+CONSOLE.o: $(CSRC)CONSOLE.cpp
+	$(CC) $(CFLAGS) $(CSRC)CONSOLE.cpp
+
+DATAFILE.o: $(CSRC)DATAFILE.cpp
+	$(CC) $(CFLAGS) $(CSRC)DATAFILE.cpp
+
+Utilities.o: $(CSRC)Utilities.cpp
+	$(CC) $(CFLAGS) $(COPTION1) $(CSRC)Utilities.cpp
+
+dc3d.o: $(CSRC_FORTRAN)dc3d.f
+	$(FC) -fPIC -c $(CSRC_FORTRAN)dc3d.f     
+
+clean:
+	del  *.o libHalfspace.dll
+
+
+

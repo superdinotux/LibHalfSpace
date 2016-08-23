@@ -1,11 +1,4 @@
-INSTALLATION OF THE LIBRARY
-
-Two binaries of the library are also included in the zip package:
-- libHalfspace.dll, build on Windows 10
-- libHalfspace.so, build on Mageia linux 5
-You can try to use these binaries in order to test the library. If you experience problems with these precompiled version, you can build your own version using the provided sources. 
-
-COMPILATION OF THE LIBRARY
+COMPILATION
 
 The compilation of the library from sources can be performed using the GNU CMAKE utility (https://cmake.org/download/). Indeed two makefiles (1 for Windows, Makefile-windows and 1 for Linux, Makefile-linux) are included in the zip package.
 The command to launch from prompt command line is:
@@ -17,9 +10,7 @@ where filename is Makefile-windows or Makefile-linux according to the operative 
 
 WINDOWS
 
-To install the library:
-- if you use the precompiled version (libHalfspace.dll) included in this package, you have simply to put this file in a directory included in the PATH system variable
-- if you want to compile the library from sources, you can use MinGW ("Minimalist GNU for Windows", http://www.mingw.org/) which it is a minimalist development environment for native Microsoft Windows applications.
+To compile the library from sources, you can use MinGW ("Minimalist GNU for Windows", http://www.mingw.org/) which it is a minimalist development environment for native Microsoft Windows applications.
 
 To run the application builded using libHalfspace is necessary to have the following libraries:
 - liblapack.dll

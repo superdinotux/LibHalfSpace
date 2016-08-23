@@ -1,0 +1,9 @@
+/Debug/
+/Release/
+/halfspace.doxyfile
+/Makefile
+/Documentation/latex/*.tex
+/.project
+/.cproject
+/.directory
+
